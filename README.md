@@ -35,3 +35,10 @@ Las imágenes se cargan por URL desde Wikimedia Commons y requieren conexión a 
 
 ## Privacidad
 No subir imágenes identificables de pacientes ni metadatos clínicos sin contar con autorización y anonimización apropiadas.
+
+
+## Atlas 3D detallado de la Universidad de Dundee
+
+Se incluye una visualización embebida y opcional (Sketchfab, carga mediante botón) de [Anatomy of the Larynx](https://sketchfab.com/3d-models/anatomy-of-the-larynx-a00bc73a303c46248db6a13a88b23404), editado y texturizado por Annie Campbell, University of Dundee School of Medicine. Basado en BodyParts3D, Database Center for Life Science. Licencia del modelo derivado: CC BY-SA 4.0 (revisar también atribuciones del material original CC BY-SA 2.1 Japan). El archivo del modelo no está alojado en este repositorio; se incrusta desde el proveedor. Su funcionamiento depende de la disponibilidad de Sketchfab y la conexión a Internet. No reemplaza el modelo 3D esquemático ni está sincronizado con él.
+
+**Nota de exactitud:** La imagen Wikimedia `Endolarynx vocal folds.jpg` es fotografía de disección, no laringoscopía en vivo.
