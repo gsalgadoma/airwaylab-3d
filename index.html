@@ -7,6 +7,39 @@
 <section class="panel scene"><div class="overlay">Arrastra para rotar · Rueda/pellizco para zoom</div><div id="canvas" role="img" aria-label="Modelo educativo tridimensional esquemático de laringe, tráquea y bronquios"></div><div class="controls"><button data-view="front" class="active">Anterior</button><button data-view="side">Lateral</button><button data-view="back">Posterior</button><button data-view="top">Superior</button><button id="reset">Restablecer</button></div></section>
 <aside class="panel"><h2>Ficha anatómica</h2><div class="tag" id="category">Laringe</div><h3 id="name">Cartílago tiroides</h3><p id="description"></p><div class="card"><b>Relevancia funcional</b><p id="function" class="note"></p></div><div class="group"><h2>Estado glótico conceptual</h2><select id="state"><option value="breathing">Inspiración</option><option value="rest">Reposo</option><option value="voice">Fonación</option></select><p class="note" id="state-text"></p></div><div class="group"><h2>Autoevaluación</h2><p id="question" class="note"></p><div id="answers" class="quiz"></div><p id="feedback"></p><button id="next">Otra pregunta →</button></div></aside></main>
 <footer>Representación esquemática con fines exclusivamente educativos. No apta para planificación de procedimientos ni decisiones clínicas.</footer>
+<section id="real-gallery" style="max-width:1600px;margin:0 auto 24px;padding:0 14px" aria-labelledby="gallery-title"><div class="panel">
+<h2 id="gallery-title">Atlas clínico · Imágenes reales</h2>
+<p class="note">Imágenes reales de fuentes abiertas, independientes del modelo 3D esquemático. No representan el mismo paciente ni una proyección sincronizada. La selección de estructuras cambia la ficha principal y recomienda la fotografía correspondiente.</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0" id="real-gallery-tabs">
+<button type="button" data-photo="larynx" class="active">Laringoscopia normal</button>
+<button type="button" data-photo="folds">Región glótica</button>
+<button type="button" data-photo="bronchoscopy">Broncoscopia (procedimiento)</button>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;align-items:start">
+<div style="background:#071523;border-radius:12px;min-height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+<img id="real-gallery-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Larynx_normal.jpg?width=900" alt="Fotografía de laringoscopia normal con referencias numéricas de estructuras" loading="lazy" style="width:100%;max-height:440px;object-fit:contain" referrerpolicy="no-referrer">
+</div>
+<div><span class="tag" id="real-gallery-kind">Imagen endoscópica real</span><h3 id="real-gallery-name">Laringoscopia normal</h3>
+<p id="real-gallery-caption" class="note">Vista endoscópica de la laringe, con referencias numéricas anatómicas incluidas en la fotografía original.</p>
+<p id="real-gallery-credit" class="note">Autor: Welleschik · CC BY-SA 3.0 · Sin modificaciones.</p>
+<p><a id="real-gallery-source" target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Larynx_normal.jpg" style="color:#75e2d6">Consultar imagen, atribución y licencia ↗</a></p>
+<div class="card"><b>Material 3D anatómico adicional</b>
+<p class="note">NIH 3D: Interactive Larynx (Travis Mccumber). Recurso externo para evaluación de futura integración, no incorporado todavía al modelo.</p>
+<a href="https://3d.nih.gov/entries/3DPX-014756?version=2" target="_blank" rel="noopener noreferrer" style="color:#75e2d6">Explorar el modelo NIH 3D ↗</a></div></div></div>
+<p class="note" id="real-gallery-error" role="status" aria-live="polite"></p></div></section>
+<script>
+(function(){
+const photos={
+larynx:{name:'Laringoscopia normal',kind:'Imagen endoscópica real',file:'Larynx_normal.jpg',alt:'Fotografía laringoscópica real de laringe normal, con estructuras numeradas',caption:'Imagen de laringoscopia normal. La fotografía original identifica estructuras mediante números; consultar su leyenda en Wikimedia Commons.',credit:'Welleschik · CC BY-SA 3.0 · Imagen sin modificar.'},
+folds:{name:'Región glótica',kind:'Imagen anatómica real',file:'Endolarynx_vocal_folds.jpg',alt:'Fotografía anatómica de pliegues vocales',caption:'Imagen real de pliegues vocales para correlación topográfica con el modelo didáctico.',credit:'Anatomist90 · CC BY-SA 3.0 · Imagen sin modificar.'},
+bronchoscopy:{name:'Broncoscopia: procedimiento',kind:'Fotografía clínica del procedimiento (no vista intraluminal)',file:'Bronchoscopy.jpg',alt:'Fotografía de personal de salud realizando una broncoscopia',caption:'Fotografía del procedimiento de broncoscopia. No es una imagen intraluminal de tráquea ni de carina.',credit:'National Cancer Institute / NIH · Dominio público · Imagen sin modificar.'}
+};
+function setPhoto(id){const p=photos[id];if(!p)return;document.getElementById('real-gallery-image').src='https://commons.wikimedia.org/wiki/Special:FilePath/'+p.file+'?width=900';document.getElementById('real-gallery-image').alt=p.alt;document.getElementById('real-gallery-name').textContent=p.name;document.getElementById('real-gallery-kind').textContent=p.kind;document.getElementById('real-gallery-caption').textContent=p.caption;document.getElementById('real-gallery-credit').textContent=p.credit;document.getElementById('real-gallery-source').href='https://commons.wikimedia.org/wiki/File:'+p.file;document.querySelectorAll('[data-photo]').forEach(b=>b.classList.toggle('active',b.dataset.photo===id));document.getElementById('real-gallery-error').textContent='';}
+document.querySelectorAll('[data-photo]').forEach(b=>b.addEventListener('click',()=>setPhoto(b.dataset.photo)));
+document.getElementById('real-gallery-image').addEventListener('error',()=>document.getElementById('real-gallery-error').textContent='No se pudo cargar la imagen externa. Utiliza el enlace a Wikimedia Commons para verla en su fuente.');
+document.getElementById('structures').addEventListener('click',e=>{const id=e.target?.dataset?.id;if(!id)return;setPhoto(id==='trachea'||id==='bronchi'||id==='rings'?'bronchoscopy':id==='folds'?'folds':'larynx')});
+})();
+</script>
 <script type="module">
 import * as THREE from 'https://esm.sh/three@0.170.0';
 import {OrbitControls} from 'https://esm.sh/three@0.170.0/examples/jsm/controls/OrbitControls.js';
