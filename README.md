@@ -67,3 +67,17 @@ Abrir [ct-viewer.html](https://gsalgadoma.github.io/airwaylab-3d/ct-viewer.html)
 Los `.vti` reales deben convertirse desde fuentes autorizadas/anónimas con una herramienta como 3D Slicer, preservando orientación, espaciado, HU y metadatos apropiados. Por defecto, los archivos locales se tratan como valores escalares de unidad desconocida: el preset remapea su rango y no debe interpretarse como HU hasta comprobar y documentar una conversión calibrada. Esta versión todavía no soporta lectura directa de DICOM, MPR, segmentación clínica ni sincronización de cortes.
 
 Requiere un navegador compatible con WebGL y conexión a Internet. El renderizador y la carga de archivos deben someterse a pruebas manuales en navegador y dispositivos de destino.
+
+
+## Estación radiológica MPR + 3D
+
+[Ir al visor radiológico](https://gsalgadoma.github.io/airwaylab-3d/radiology.html).
+
+Módulo adicional basado en NiiVue 0.57.0 para:
+- visualizar cortes axiales, coronales y sagitales y reconstrucciones 3D;
+- cargar archivos locales NIfTI (`.nii`, `.nii.gz`) y NRRD;
+- visualizar un ejemplo abierto de **RM cerebral MNI152** de la galería de demostración de NiiVue, que **no es un estudio de TC cervical**.
+
+Este módulo no sustituye al visor experimental vtk.js existente (`ct-viewer.html`) ni implementa todavía Cornerstone3D u OHIF, ni lectura DICOMweb directa. Para una futura plataforma OHIF se requiere una fuente de DICOM validada con CORS y condiciones de acceso apropiadas. Un TC de cuello/línea aérea abierto y con redistribución autorizada queda pendiente de incorporación.
+
+**Seguridad:** archivo de usuario procesado localmente sin endpoint de carga; no utilizar datos identificables sin autorización y medidas institucionales adecuadas. Conexiones de red al proveedor CDN y al volumen de demostración son necesarias. No apto para interpretación diagnóstica. Se requiere validación manual en navegador antes de uso docente.
