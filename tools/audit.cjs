@@ -29,10 +29,14 @@ const server = http.createServer((request, response) => {
       const errors = [];
       page.on('pageerror', error => {errors.push(error.message);console.error(error.message)});
       for (const file of ['index.html','radiology.html','ct-viewer.html']) {
-        await page.goto('http://127.0.0.1:4173/' + file);
+        await page.goto((process.env.AIRWAYLAB_BASE_URL || 'http://127.0.0.1:4173/') + file);
         const status = page.locator('[role=status]').first();
-        await page.waitForFunction(text => document.querySelector('[role=status]')?.textContent.includes(text), file === 'index.html' ? 'listos' : file === 'radiology.html' ? 'Encuadre' : 'Fantoma sintético cargado', {timeout:60000});
+        await page.waitForFunction(text => document.querySelector('[role=status]')?.textContent.includes(text), file === 'index.html' ? 'listos' : file === 'radiology.html' ? 'RM cerebral cargada' : 'Fantoma sintético cargado', {timeout:60000});
         if (file === 'index.html') {
+          assert.equal(await page.locator('#renderStatus').getAttribute('data-model'), 'bodyparts');
+          assert.ok(await page.locator('#glottis').isDisabled());
+          await page.locator('[data-anat=ligaments]').click();
+          assert.equal(await page.locator('#title').textContent(), 'Ligamentos vocales');
           assert.ok(await page.evaluate(async () => {
             const THREE = await import('https://esm.sh/three@0.170.0');
             const {synchronizeProjection} = await import('./src/cameras.js');
@@ -47,8 +51,13 @@ const server = http.createServer((request, response) => {
           await page.locator('[data-pose=side]').click();
           await page.locator('[data-anat=epiglottis]').click();
           assert.equal(await page.locator('#title').textContent(), 'Epiglotis');
+          await page.locator('#model').selectOption('schematic');
+          await page.waitForFunction(() => document.querySelector('#renderStatus').dataset.model === 'schematic');
           await page.locator('#trach').selectOption('cuff');
           assert.match(await page.locator('#trach-note').textContent(), /Nunca utilizar/);
+          await page.locator('#model').selectOption('bodyparts');
+          await page.waitForFunction(() => document.querySelector('#renderStatus').dataset.model === 'bodyparts');
+          await page.locator('[data-pose=front]').click();
         } else if (file === 'radiology.html') {
           for (const view of ['axial','coronal','sagittal','render','multiplanar']) {
             await page.locator(`[data-view=${view}]`).first().click();
@@ -73,7 +82,16 @@ const server = http.createServer((request, response) => {
       assert.deepEqual(errors, [], 'No uncaught JavaScript errors');
       await page.close();
     }
+    const recovery = await browser.newPage();
+    await recovery.route('**/assets/bodyparts3d/airway.glb', route => route.fulfill({status:503,body:'Unavailable'}));
+    await recovery.goto((process.env.AIRWAYLAB_BASE_URL || 'http://127.0.0.1:4173/') + 'index.html');
+    await recovery.waitForFunction(() => document.querySelector('#renderStatus').textContent.includes('No se pudo cargar BodyParts3D'));
+    assert.equal(await recovery.locator('#model').inputValue(), 'schematic');
+    assert.ok(await recovery.locator('#glottis').isEnabled());
+    await recovery.unroute('**/assets/bodyparts3d/airway.glb');
+    await recovery.locator('#model').selectOption('bodyparts');
+    await recovery.waitForFunction(() => document.querySelector('#renderStatus').dataset.model === 'bodyparts');
+    console.log('PASS GLB failure fallback and retry');
+    await recovery.close();
   } finally { await browser.close(); server.close(); }
 })().catch(error => { console.error(error); server.close(); process.exitCode=1; });
-
-

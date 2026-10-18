@@ -1,0 +1,293 @@
+{
+  "dataset": "BodyParts3D",
+  "version": "4.0",
+  "polygonReduction": "99%",
+  "license": "CC-BY-4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "licenseSource": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/README_e.html",
+  "archiveURL": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_BP3D_4.0_obj_99.zip",
+  "partsURL": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_parts_list_e.txt",
+  "elementsURL": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_element_parts.txt",
+  "retrieved": "2026-10-18",
+  "meshes": [
+    {
+      "mesh": "FMA52749_FJ2772",
+      "fma": "FMA52749",
+      "element": "FJ2772",
+      "structure": "hyoid",
+      "label": "Hueso hioides",
+      "representation": "BP8836",
+      "name": "hyoid bone",
+      "sha256OBJ": "c8c6cfdd66285cdda16fa441829f723d3943823d0ffebf5e394ff8dc49a598b1",
+      "vertices": 687,
+      "triangles": 1196,
+      "bounds": [
+        [
+          -19.5242,
+          -129.0,
+          1422.37
+        ],
+        [
+          18.2825,
+          -94.4187,
+          1440.86
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA55130_FJ2770",
+      "fma": "FMA55130",
+      "element": "FJ2770",
+      "structure": "epiglottis",
+      "label": "Epiglotis",
+      "representation": "BP9263",
+      "name": "epiglottis",
+      "sha256OBJ": "05ae56007f7aa017fb458bdef643ea97e51ed3bd275b13da30086fa02b606054",
+      "vertices": 2992,
+      "triangles": 3602,
+      "bounds": [
+        [
+          -8.59202,
+          -115.9,
+          1408.73
+        ],
+        [
+          7.23443,
+          -108.189,
+          1438.23
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA55099_FJ2808",
+      "fma": "FMA55099",
+      "element": "FJ2808",
+      "structure": "thyroid",
+      "label": "Cartílago tiroides",
+      "representation": "BP7901",
+      "name": "thyroid cartilage",
+      "sha256OBJ": "48cd41bcd4044c7013ba10c971e212766afc970408f51875f9ef8e8c407c0687",
+      "vertices": 1360,
+      "triangles": 2610,
+      "bounds": [
+        [
+          -19.9803,
+          -122.446,
+          1391.41
+        ],
+        [
+          18.6825,
+          -91.5061,
+          1430.93
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA9615_FJ2440",
+      "fma": "FMA9615",
+      "element": "FJ2440",
+      "structure": "cricoid",
+      "label": "Cartílago cricoides",
+      "representation": "BP9117",
+      "name": "cricoid cartilage",
+      "sha256OBJ": "ae1e2bab875a75035aaebdc79212fd859c2c193881462245de3252853721361d",
+      "vertices": 937,
+      "triangles": 1702,
+      "bounds": [
+        [
+          -12.1665,
+          -111.469,
+          1387.2
+        ],
+        [
+          10.8605,
+          -92.6165,
+          1404.72
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA55113_FJ2792",
+      "fma": "FMA55113",
+      "element": "FJ2792",
+      "structure": "arytenoids",
+      "label": "Cartílago aritenoides derecho",
+      "representation": "BP9249",
+      "name": "right arytenoid cartilage",
+      "sha256OBJ": "6766f404ea88ffb33f5430ee4704a416aab95813da19a84998f67fbdcc556eaa",
+      "vertices": 282,
+      "triangles": 540,
+      "bounds": [
+        [
+          -8.0179,
+          -102.671,
+          1403.48
+        ],
+        [
+          -2.51497,
+          -95.3936,
+          1411.61
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA55114_FJ2775",
+      "fma": "FMA55114",
+      "element": "FJ2775",
+      "structure": "arytenoids",
+      "label": "Cartílago aritenoides izquierdo",
+      "representation": "BP8314",
+      "name": "left arytenoid cartilage",
+      "sha256OBJ": "1e2c0bf8eab8a3a1814b5d56ba721031f3bd87473ea739e540781117bbfb32c9",
+      "vertices": 284,
+      "triangles": 536,
+      "bounds": [
+        [
+          1.18243,
+          -102.681,
+          1403.49
+        ],
+        [
+          6.72215,
+          -95.3758,
+          1411.63
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA55245_FJ2805",
+      "fma": "FMA55245",
+      "element": "FJ2805",
+      "structure": "ligaments",
+      "label": "Ligamento vocal derecho",
+      "representation": "BP9026",
+      "name": "right vocal ligament",
+      "sha256OBJ": "f8d93ea86284dbe0877b6080c642991a6542cf78bb6ad884a78b4d55a7b8e3e8",
+      "vertices": 1437,
+      "triangles": 1644,
+      "bounds": [
+        [
+          -3.61221,
+          -115.111,
+          1403.78
+        ],
+        [
+          -1.42763,
+          -101.784,
+          1404.77
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA55246_FJ2787",
+      "fma": "FMA55246",
+      "element": "FJ2787",
+      "structure": "ligaments",
+      "label": "Ligamento vocal izquierdo",
+      "representation": "BP8188",
+      "name": "left vocal ligament",
+      "sha256OBJ": "fd2030747641aae5864bb28f2c18a03d8ccfc34702f9a9012af1957ac1bef23b",
+      "vertices": 2492,
+      "triangles": 1858,
+      "bounds": [
+        [
+          0.117234,
+          -115.104,
+          1403.77
+        ],
+        [
+          2.30972,
+          -101.778,
+          1404.73
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA7394_FJ2541",
+      "fma": "FMA7394",
+      "element": "FJ2541",
+      "structure": "trachea",
+      "label": "Tráquea",
+      "representation": "BP7849",
+      "name": "trachea",
+      "sha256OBJ": "eb8c075b6601f2d543532f4a2eb4a39b03430af858da225ba7887e52182272ed",
+      "vertices": 2607,
+      "triangles": 4996,
+      "bounds": [
+        [
+          -13.1241,
+          -110.131,
+          1285.09
+        ],
+        [
+          12.8145,
+          -77.366,
+          1395.44
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA7396_FJ2450",
+      "fma": "FMA7396",
+      "element": "FJ2450",
+      "structure": "bronchi",
+      "label": "Bronquio principal izquierdo",
+      "representation": "BP8386",
+      "name": "left main bronchus",
+      "sha256OBJ": "7c4ac571448fb3d0c3c1095874bf17a60853bf12457d842a11dd2c62c0994946",
+      "vertices": 2304,
+      "triangles": 4136,
+      "bounds": [
+        [
+          0.421196,
+          -93.3835,
+          1220.82
+        ],
+        [
+          72.3474,
+          -61.0014,
+          1296.71
+        ]
+      ]
+    },
+    {
+      "mesh": "FMA68418_FJ2539",
+      "fma": "FMA68418",
+      "element": "FJ2539",
+      "structure": "bronchi",
+      "label": "Bronquio principal derecho (porción propia)",
+      "representation": "BP8732",
+      "name": "right main bronchus proper",
+      "sha256OBJ": "76b37e620e01b344b3f7019c8332b006d1a9f1b0af440ab8f7636e9d6fafa333",
+      "vertices": 2564,
+      "triangles": 4468,
+      "bounds": [
+        [
+          -50.4191,
+          -98.4928,
+          1204.03
+        ],
+        [
+          -0.377242,
+          -61.3287,
+          1298.0
+        ]
+      ]
+    }
+  ],
+  "duplicateElements": [
+    {
+      "fma": "FMA52749",
+      "element": "FJ3201",
+      "sameGeometryAs": "FJ2772",
+      "sha256OBJ": "c52dd55001d86286d6469190d3673cc8b2b03fb3d9c29d45cec211192950c027"
+    },
+    {
+      "fma": "FMA9615",
+      "element": "FJ2769",
+      "sameGeometryAs": "FJ2440",
+      "sha256OBJ": "5f75fb4d2969fd1de51898787bb8810c441d5d2bd6eb0c5482b7cacd3c9bc3be"
+    }
+  ],
+  "sha256GLB": "c904244e4892dc21d5171d626e17961bdd9d6f70405455500767390f15f4d611"
+}
