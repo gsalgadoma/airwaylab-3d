@@ -56,3 +56,14 @@ El esquema indica rutas conceptuales y **no simula** presiones, caudales, oclusi
 Una ficha de correlación permite saltar desde el explorador al atlas anatómico detallado. **La geometría del atlas externo Sketchfab no está sincronizada ni es seleccionable automáticamente por las fichas.**
 
 Pruebas recomendadas tras desplegar: abrir la página, mover la cámara, alternar estados, verificar visibilidad de la cánula y confirmar que el enlace al atlas detallado funciona. 
+
+
+## Visor volumétrico 3D de TC (experimental)
+
+Abrir [ct-viewer.html](https://gsalgadoma.github.io/airwaylab-3d/ct-viewer.html). Implementa renderizado volumétrico acelerado por GPU con vtk.js y transferencia de color y opacidad, controles de calidad, rotación, zoom y apertura local de archivos `.vti` escalares.
+
+**Al abrir se genera un fantoma 3D totalmente sintético en memoria. NO es una tomografía clínica real.** No usar con fines diagnósticos. El botón de archivo local utiliza File API y no sube el archivo a GitHub; el sitio depende de módulos JavaScript públicos cargados desde CDN, que recibirán conexiones de red. No abrir archivos identificables o no autorizados.
+
+Los `.vti` reales deben convertirse desde fuentes autorizadas/anónimas con una herramienta como 3D Slicer, preservando orientación, espaciado, HU y metadatos apropiados. Por defecto, los archivos locales se tratan como valores escalares de unidad desconocida: el preset remapea su rango y no debe interpretarse como HU hasta comprobar y documentar una conversión calibrada. Esta versión todavía no soporta lectura directa de DICOM, MPR, segmentación clínica ni sincronización de cortes.
+
+Requiere un navegador compatible con WebGL y conexión a Internet. El renderizador y la carga de archivos deben someterse a pruebas manuales en navegador y dispositivos de destino.
