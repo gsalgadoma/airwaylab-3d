@@ -1,0 +1,6 @@
+{
+  "name": "airwaylab-3d",
+  "private": true,
+  "scripts": {"test": "node tools/audit.cjs"},
+  "devDependencies": {"playwright": "1.58.2"}
+}
